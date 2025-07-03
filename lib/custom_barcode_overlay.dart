@@ -1,6 +1,11 @@
+library qr_overlay;
+
+export 'package:mobile_scanner/mobile_scanner.dart';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:math' as math;
+
 
 class CustomBarcodeOverlay extends StatefulWidget {
   /// Construct a new [CustomBarcodeOverlay] instance.

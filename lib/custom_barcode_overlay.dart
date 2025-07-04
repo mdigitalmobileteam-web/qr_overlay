@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:math' as math;
 
-
 class CustomBarcodeOverlay extends StatefulWidget {
   /// Construct a new [CustomBarcodeOverlay] instance.
   const CustomBarcodeOverlay({
@@ -62,20 +61,11 @@ class _CustomBarcodeOverlayState extends State<CustomBarcodeOverlay> {
         return StreamBuilder<BarcodeCapture>(
           stream: widget.controller.barcodes,
           builder: (context, snapshot) {
-            final BarcodeCapture? barcodeCapture = snapshot.data;
-
-            // No barcode or preview size.
-            if (barcodeCapture == null || barcodeCapture.size.isEmpty || barcodeCapture.barcodes.isEmpty) {
-              return const SizedBox();
-            }
-
             final overlays = <Widget>[
-              for (final Barcode barcode in barcodeCapture.barcodes)
-                if (!barcode.size.isEmpty && barcode.corners.isNotEmpty)
-                  AnimatedBarcodeOverlay(
-                    boxFit: widget.boxFit,
-                    controller: widget.controller,
-                  ),
+              AnimatedBarcodeOverlay(
+                boxFit: widget.boxFit,
+                controller: widget.controller,
+              ),
             ];
 
             return Stack(fit: StackFit.expand, children: overlays);

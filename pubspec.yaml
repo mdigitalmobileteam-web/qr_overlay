@@ -2,7 +2,7 @@ name: qr_overlay
 description: "custom animated qr scanner, based on mobile_scanner"
 homepage: "https://gitlab.mdigital.kg/ch.yakshybaev/qr_scanner"
 
-version: 1.0.0+1
+version: 1.0.1
 
 environment:
   sdk: ^3.7.3
@@ -22,3 +22,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+# fvm dart run create-tag
+scripts:
+  create-tag:
+    exec: ./create_tag.sh

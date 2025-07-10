@@ -2,7 +2,7 @@ name: qr_overlay
 description: "custom animated qr scanner, based on mobile_scanner"
 homepage: "https://gitlab.mdigital.kg/ch.yakshybaev/qr_scanner"
 
-version: 1.0.1
+version: 1.0.2
 
 environment:
   sdk: ^3.7.3

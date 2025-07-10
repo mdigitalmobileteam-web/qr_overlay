@@ -29,5 +29,11 @@ echo "Created and pushed tag: $TAG"
 # Проверить удалённые теги
 # git ls-remote --tags origin
 #
-# Если тег отсутствует на удалённом сервере
-# git push origin v1.0.1
+# # Перейдите в директорию проекта
+#cd ~/StudioProjects/qr_scanner
+#
+## Создайте новый тег (если нужно)
+#git tag -f v1.0.2 -m "Updated release"
+#
+# # Принудительная отправка тега
+#git push -f origin v1.0.2

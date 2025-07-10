@@ -2,6 +2,7 @@ library qr_overlay;
 
 export 'package:mobile_scanner/mobile_scanner.dart';
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:math' as math;
@@ -102,15 +103,17 @@ class AnimatedBarcodeOverlay extends StatefulWidget {
 
 class _AnimatedBarcodeOverlayState extends State<AnimatedBarcodeOverlay> {
   Rect? _targetRect;
+  late final StreamSubscription<BarcodeCapture> _barcodeSubscription;
 
   @override
   void initState() {
     super.initState();
 
-    widget.controller.barcodes.listen((capture) {
+    _barcodeSubscription = widget.controller.barcodes.listen((capture) {
       if (!mounted || capture.barcodes.isEmpty) return;
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
         final box = context.findRenderObject() as RenderBox?;
         if (box == null || !box.hasSize) return;
 
@@ -121,6 +124,12 @@ class _AnimatedBarcodeOverlayState extends State<AnimatedBarcodeOverlay> {
         });
       });
     });
+  }
+
+  @override
+  void dispose() {
+    _barcodeSubscription.cancel();
+    super.dispose();
   }
 
   Rect _computeTargetRect(BarcodeCapture capture, Size size) {
@@ -186,8 +195,10 @@ class _MaskPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final overlay = Path()..addRect(Rect.fromLTWH(0, 0, size.width, size.height));
-    final cutout = Path()..addRRect(RRect.fromRectAndRadius(rect, const Radius.circular(8)));
+    final overlay = Path()
+      ..addRect(Rect.fromLTWH(0, 0, size.width, size.height));
+    final cutout = Path()
+      ..addRRect(RRect.fromRectAndRadius(rect, const Radius.circular(8)));
     final path = Path.combine(PathOperation.difference, overlay, cutout);
     canvas.drawPath(
         path,

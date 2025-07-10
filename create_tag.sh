@@ -25,3 +25,9 @@ git tag -a $TAG -m "Release $TAG"
 git push origin $TAG
 
 echo "Created and pushed tag: $TAG"
+
+# Проверить удалённые теги
+# git ls-remote --tags origin
+#
+# Если тег отсутствует на удалённом сервере
+# git push origin v1.0.1

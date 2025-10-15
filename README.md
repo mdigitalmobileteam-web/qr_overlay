@@ -19,5 +19,5 @@ Add the following to your project's pubspec.yaml:
 
 ```yaml
 dependencies:
-  mobile_scanner: ^7.0.1 # Required dependency
+  mobile_scanner: any # Required dependency
   qr_overlay: any

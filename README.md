@@ -5,6 +5,8 @@
 
 A customizable QR code scanning overlay with animated positioning and visual effects. The package integrates perfectly with [mobile_scanner](https://pub.dev/packages/mobile_scanner).
 
+!["Fade through gallery - normal speed and slow motion"](example/demo_gif/GIF_20251015_01.gif)
+
 ##Features
 
 - 🎯 Accurate QR code tracking

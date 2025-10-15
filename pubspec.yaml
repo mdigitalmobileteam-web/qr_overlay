@@ -23,7 +23,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-# fvm dart run create-tag
 scripts:
   create-tag:
     exec: ./create_tag.sh

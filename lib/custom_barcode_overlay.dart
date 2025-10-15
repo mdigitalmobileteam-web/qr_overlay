@@ -10,11 +10,15 @@ import 'dart:math' as math;
 class CustomBarcodeOverlay extends StatefulWidget {
   /// Construct a new [CustomBarcodeOverlay] instance.
   const CustomBarcodeOverlay({
-    required this.boxFit,
+    this.boxFit = BoxFit.cover,
     required this.controller,
     super.key,
-    this.color = const Color(0x4DF44336),
     this.style = PaintingStyle.fill,
+    this.defaultSize = 200,
+    this.borderColor = Colors.white,
+    this.strokeWidth = 4,
+    this.animationDuration = const Duration(milliseconds: 300),
+    this.overlayColor = const Color(0x88000000),
   });
 
   /// The [BoxFit] to use when painting the barcode box.
@@ -23,15 +27,15 @@ class CustomBarcodeOverlay extends StatefulWidget {
   /// The controller that provides the barcodes to display.
   final MobileScannerController controller;
 
-  /// The color to use when painting the barcode box.
-  ///
-  /// Defaults to [Colors.red], with an opacity of 30%.
-  final Color color;
-
   /// The style to use when painting the barcode box.
   ///
   /// Defaults to [PaintingStyle.fill].
   final PaintingStyle style;
+  final double defaultSize;
+  final Color borderColor;
+  final double strokeWidth;
+  final Duration animationDuration;
+  final Color overlayColor;
 
   @override
   State<CustomBarcodeOverlay> createState() => _CustomBarcodeOverlayState();
@@ -66,6 +70,11 @@ class _CustomBarcodeOverlayState extends State<CustomBarcodeOverlay> {
               AnimatedBarcodeOverlay(
                 boxFit: widget.boxFit,
                 controller: widget.controller,
+                defaultSize: widget.defaultSize,
+                borderColor: widget.borderColor,
+                strokeWidth: widget.strokeWidth,
+                animationDuration: widget.animationDuration,
+                overlayColor: widget.overlayColor,
               ),
             ];
 
@@ -89,12 +98,12 @@ class AnimatedBarcodeOverlay extends StatefulWidget {
   const AnimatedBarcodeOverlay({
     super.key,
     required this.controller,
-    this.boxFit = BoxFit.cover,
-    this.defaultSize = 200,
-    this.borderColor = Colors.white,
-    this.strokeWidth = 4,
-    this.animationDuration = const Duration(milliseconds: 300),
-    this.overlayColor = const Color(0x88000000),
+    required this.boxFit,
+    required this.defaultSize,
+    required this.borderColor,
+    required this.strokeWidth,
+    required this.animationDuration,
+    required this.overlayColor,
   });
 
   @override

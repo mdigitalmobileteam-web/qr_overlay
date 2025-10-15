@@ -68,7 +68,6 @@ class _QrScannerViewState extends State<QrScannerView> {
                     controller: controller!,
                     boxFit: boxFit,
                     style: PaintingStyle.stroke,
-                    color: Colors.white,
                   ),
               ],
             ),

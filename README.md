@@ -20,7 +20,4 @@ Add the following to your project's pubspec.yaml:
 ```yaml
 dependencies:
   mobile_scanner: ^7.0.1 # Required dependency
-  qr_overlay:
-    git:
-      url: https://gitlab.mdigital.kg/mobile-global/qr_overlay.git
-      ref: v1.0.1 # Specify the current version
+  qr_overlay: any

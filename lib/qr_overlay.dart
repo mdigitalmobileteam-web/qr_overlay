@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'dart:math' as math;
 
-class CustomBarcodeOverlay extends StatefulWidget {
-  /// Construct a new [CustomBarcodeOverlay] instance.
-  const CustomBarcodeOverlay({
+class QrOverlay extends StatefulWidget {
+  /// Construct a new [QrOverlay] instance.
+  const QrOverlay({
     this.boxFit = BoxFit.cover,
     required this.controller,
     super.key,
@@ -38,10 +38,10 @@ class CustomBarcodeOverlay extends StatefulWidget {
   final Color overlayColor;
 
   @override
-  State<CustomBarcodeOverlay> createState() => _CustomBarcodeOverlayState();
+  State<QrOverlay> createState() => _QrOverlayState();
 }
 
-class _CustomBarcodeOverlayState extends State<CustomBarcodeOverlay> {
+class _QrOverlayState extends State<QrOverlay> {
   final _textPainter = TextPainter(
     textAlign: TextAlign.center,
     textDirection: TextDirection.ltr,

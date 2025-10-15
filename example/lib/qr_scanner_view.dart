@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:qr_overlay/custom_barcode_overlay.dart';
+import 'package:qr_overlay/qr_overlay.dart';
 
 class QrScannerView extends StatefulWidget {
   const QrScannerView({super.key});
@@ -64,7 +64,7 @@ class _QrScannerViewState extends State<QrScannerView> {
                   fit: boxFit,
                 ),
                 if (useBarcodeOverlay)
-                  CustomBarcodeOverlay(
+                  QrOverlay(
                     controller: controller!,
                     boxFit: boxFit,
                     style: PaintingStyle.stroke,
